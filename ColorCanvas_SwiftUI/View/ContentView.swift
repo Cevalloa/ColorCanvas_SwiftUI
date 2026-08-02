@@ -12,17 +12,23 @@ struct ContentView: View {
 
     var body: some View {
         NavigationStack {
-            List {
-                if !colorsListViewModel.colorsInUse.isEmpty {
-                    ForEach(colorsListViewModel.colorsInUse, id: \.self) { element in
-                        element
-                            .listRowInsets(EdgeInsets())
-                    }
+            Group {
+                if colorsListViewModel.colorsInUse.isEmpty {
+                    ContentUnavailableView(
+                        "No Colors",
+                        systemImage: "paintpalette",
+                        description: Text("Tap the plus button to add a color")
+                    )
                 } else {
-                    Text("Tap on the top right to add a color!")
+                    List {
+                        ForEach(colorsListViewModel.colorsInUse, id: \.self) {
+                            element in
+                            element
+                                .listRowInsets(EdgeInsets())
+                        }
+                    }
                 }
-            }
-            .toolbar {
+            }.toolbar {
                 Button("Add color", systemImage: "plus") {
                     colorsListViewModel.addRandomColor()
                 }
