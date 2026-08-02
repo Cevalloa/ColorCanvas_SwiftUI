@@ -20,7 +20,7 @@ struct ContentView: View {
             }
             .toolbar {
                 Button("", systemImage: "plus") {
-                    colorsListViewModel.colorsInUse.append(.red)
+                    colorsListViewModel.addRandomColor()
                 }
             }
         }
