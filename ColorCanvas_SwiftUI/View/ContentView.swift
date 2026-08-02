@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var colorsListViewModel = ColorsListViewModel()
+    @State private var isShowingHelloAlert = false
 
     var body: some View {
         NavigationStack {
@@ -38,12 +39,22 @@ struct ContentView: View {
                     }
                 }
             }.toolbar {
+                Button("Alert", systemImage: "bell") {
+                    isShowingHelloAlert = true
+                }
                 Button("Add color", systemImage: "plus") {
                     withAnimation(.easeInOut) {
                         colorsListViewModel.addRandomColor()
                     }
                 }
             }
+            .navigationTitle("Colors")
+            .alert("Hello", isPresented: $isShowingHelloAlert) {
+                Button("Okay") {}
+            } message: {
+                Text("Hope you have a great day!")
+            }
+            .navigationBarTitleDisplayMode(.large)
         }
     }
 }
