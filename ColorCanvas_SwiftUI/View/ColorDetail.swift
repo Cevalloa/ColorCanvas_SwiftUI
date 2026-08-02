@@ -12,7 +12,15 @@ struct ColorDetail: View {
     let colorsDetailViewModel: ColorsDetailViewModel
     
     var body: some View {
-        Text("Welcome to the color detail view!")
+        
+        VStack {
+            Text("Welcome to the color detail view!")
+            HStack {
+                Text("Here is your color:")
+                Rectangle().foregroundStyle(colorsDetailViewModel.color)
+                    .frame(width:50, height:50)
+            }
+        }
     }
 }
 
