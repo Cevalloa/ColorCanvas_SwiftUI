@@ -7,13 +7,21 @@
 
 import SwiftUI
 
-let colorsListViewModel = ColorsListViewModel()
-
 struct ContentView: View {
+    @State private var colorsListViewModel = ColorsListViewModel()
+
     var body: some View {
-        List {
-            ForEach(colorsListViewModel.colorsInUse, id: \.self) { element in
-                RoundedRectangle(cornerRadius: 12).fill(element)
+        NavigationStack {
+            List {
+                ForEach(colorsListViewModel.colorsInUse, id: \.self) { element in
+                    element
+                        .listRowInsets(EdgeInsets())
+                }
+            }
+            .toolbar {
+                Button("", systemImage: "plus") {
+                    colorsListViewModel.colorsInUse.append(.red)
+                }
             }
         }
     }
