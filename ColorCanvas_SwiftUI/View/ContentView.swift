@@ -23,11 +23,17 @@ struct ContentView: View {
                     List {
                         ForEach(colorsListViewModel.colorsInUse, id: \.self) {
                             color in
-                            color
-                                .listRowInsets(EdgeInsets())
+                            NavigationLink {
+                                ColorDetail()
+                            } label: {
+                                Color.clear
+                            }.listRowInsets(EdgeInsets())
                                 .transition(
                                     .move(edge: .top)
-                                    .combined(with: .opacity))
+                                        .combined(with: .opacity)
+                                )
+                                .listRowBackground(color)
+
                         }
                     }
                 }
