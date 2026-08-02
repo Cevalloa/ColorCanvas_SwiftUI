@@ -42,6 +42,9 @@ struct ContentView: View {
                 Button("Alert", systemImage: "bell") {
                     isShowingHelloAlert = true
                 }
+                Button("Delete all", systemImage: "trash", role: .destructive) {
+                    colorsListViewModel.clearAllColors()
+                }
                 Button("Add color", systemImage: "plus") {
                     withAnimation(.easeInOut) {
                         colorsListViewModel.addRandomColor()

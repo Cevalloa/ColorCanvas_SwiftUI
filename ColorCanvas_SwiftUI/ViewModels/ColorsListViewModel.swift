@@ -21,4 +21,8 @@ struct ColorsListViewModel {
         let colorToUse = colorsDataBase[Int.random(in: 0..<colorsDataBase.count)]
         colorsInUse.append(colorToUse)
     }
+    
+    mutating func clearAllColors() {
+        colorsInUse = []
+    }
 }
