@@ -22,15 +22,20 @@ struct ContentView: View {
                 } else {
                     List {
                         ForEach(colorsListViewModel.colorsInUse, id: \.self) {
-                            element in
-                            element
+                            color in
+                            color
                                 .listRowInsets(EdgeInsets())
+                                .transition(
+                                    .move(edge: .top)
+                                    .combined(with: .opacity))
                         }
                     }
                 }
             }.toolbar {
                 Button("Add color", systemImage: "plus") {
-                    colorsListViewModel.addRandomColor()
+                    withAnimation(.easeInOut) {
+                        colorsListViewModel.addRandomColor()
+                    }
                 }
             }
         }
