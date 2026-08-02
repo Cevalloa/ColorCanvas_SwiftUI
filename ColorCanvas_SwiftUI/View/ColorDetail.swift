@@ -8,11 +8,15 @@
 import SwiftUI
 
 struct ColorDetail: View {
+    
+    let colorsDetailViewModel: ColorsDetailViewModel
+    
     var body: some View {
         Text("Welcome to the color detail view!")
     }
 }
 
 #Preview {
-    ColorDetail()
+    let colorsDetailViewModel = ColorsDetailViewModel(color: .cyan)
+    ColorDetail(colorsDetailViewModel: colorsDetailViewModel)
 }

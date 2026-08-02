@@ -25,7 +25,11 @@ struct ContentView: View {
                         ForEach(colorsListViewModel.colorsInUse, id: \.self) {
                             color in
                             NavigationLink {
-                                ColorDetail()
+                                let colorsDetailViewModel =
+                                    ColorsDetailViewModel(color: color)
+                                ColorDetail(
+                                    colorsDetailViewModel: colorsDetailViewModel
+                                )
                             } label: {
                                 Color.clear
                             }.listRowInsets(EdgeInsets())
@@ -34,7 +38,6 @@ struct ContentView: View {
                                         .combined(with: .opacity)
                                 )
                                 .listRowBackground(color)
-
                         }
                     }
                 }
@@ -57,7 +60,6 @@ struct ContentView: View {
             } message: {
                 Text("Hope you have a great day!")
             }
-            .navigationBarTitleDisplayMode(.large)
         }
     }
 }
