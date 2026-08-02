@@ -11,9 +11,9 @@ struct ColorsListViewModel {
     
     // MARK: - Properties
 
-    private let colorsDataBase: [Color] = [.red, .green, .blue, .yellow, .purple, .brown, .orange, .mint, .pink, .indigo, .cyan]
+    private let colorsDataBase: [Color] = [.red, .green, .blue, .yellow, .purple, .brown, .orange, .mint, .pink, .indigo, .cyan, .teal]
     
-    private(set) var colorsInUse: [Color] = [.green, .cyan]
+    private(set) var colorsInUse: [Color] = []
 
     // MARK: - Methods
 

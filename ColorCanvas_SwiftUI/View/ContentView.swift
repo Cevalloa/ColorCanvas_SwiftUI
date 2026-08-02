@@ -13,13 +13,17 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             List {
-                ForEach(colorsListViewModel.colorsInUse, id: \.self) { element in
-                    element
-                        .listRowInsets(EdgeInsets())
+                if !colorsListViewModel.colorsInUse.isEmpty {
+                    ForEach(colorsListViewModel.colorsInUse, id: \.self) { element in
+                        element
+                            .listRowInsets(EdgeInsets())
+                    }
+                } else {
+                    Text("Tap on the top right to add a color!")
                 }
             }
             .toolbar {
-                Button("", systemImage: "plus") {
+                Button("Add color", systemImage: "plus") {
                     colorsListViewModel.addRandomColor()
                 }
             }
