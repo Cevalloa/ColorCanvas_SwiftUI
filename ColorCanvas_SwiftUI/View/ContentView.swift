@@ -28,7 +28,8 @@ struct ContentView: View {
                                 let colorsDetailViewModel =
                                     ColorsDetailViewModel(color: color)
                                 ColorDetail(
-                                    colorsDetailViewModel: colorsDetailViewModel
+                                    colorsDetailViewModel: colorsDetailViewModel,
+                                    colorsListViewModel: $colorsListViewModel
                                 )
                             } label: {
                                 Color.clear
@@ -55,7 +56,7 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("Colors")
-            .alert("Hello", isPresented: $isShowingHelloAlert) {
+            .alert("Good day!", isPresented: $isShowingHelloAlert) {
                 Button("Okay") {}
             } message: {
                 Text("Hope you have a great day!")
