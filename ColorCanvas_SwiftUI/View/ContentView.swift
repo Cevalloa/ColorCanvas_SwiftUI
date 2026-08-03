@@ -22,11 +22,11 @@ struct ContentView: View {
                     )
                 } else {
                     List {
-                        ForEach(colorsListViewModel.colorsInUse, id: \.self) {
-                            color in
+                        ForEach(colorsListViewModel.colorsInUse.enumerated(), id:\.element.id) {
+                            index, colorModel in
                             NavigationLink {
                                 let colorsDetailViewModel =
-                                    ColorsDetailViewModel(color: color)
+                                ColorsDetailViewModel(color: colorModel, currentIndex: index)
                                 ColorDetail(
                                     colorsDetailViewModel: colorsDetailViewModel,
                                     colorsListViewModel: $colorsListViewModel
@@ -38,7 +38,7 @@ struct ContentView: View {
                                     .move(edge: .top)
                                         .combined(with: .opacity)
                                 )
-                                .listRowBackground(color)
+                                .listRowBackground(colorModel.color)
                         }
                     }
                 }

@@ -5,6 +5,9 @@
 //  Created by Alex Cevallos on 8/2/26.
 //
 
-struct ColorModel {
-    
+import SwiftUI
+
+struct ColorModel: Identifiable {
+    let id = UUID()
+    var color: Color
 }

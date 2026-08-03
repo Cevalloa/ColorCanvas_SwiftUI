@@ -8,5 +8,6 @@
 import SwiftUI
 
 struct ColorsDetailViewModel {
-    let color: Color
+    let color: ColorModel
+    let currentIndex: Int
 }
