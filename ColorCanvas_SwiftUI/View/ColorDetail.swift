@@ -20,7 +20,7 @@ struct ColorDetail: View {
             Text("Welcome to the color detail view!")
             HStack {
                 Text("Here is your color:")
-                Rectangle().foregroundStyle(colorsDetailViewModel.color.color)
+                Rectangle().foregroundStyle(colorsListViewModel.color(at: colorsDetailViewModel.currentIndex) ?? .clear)
                     .frame(width: 50, height: 50)
             }
             Text(

@@ -34,4 +34,12 @@ struct ColorsListViewModel {
         
         colorsInUse[index] = ColorModel(color: color)
     }
+    
+    func color(at index: Int) -> Color? {
+        guard colorsInUse.indices.contains(index) else {
+            return nil
+        }
+
+        return colorsInUse[index].color
+    }
 }
