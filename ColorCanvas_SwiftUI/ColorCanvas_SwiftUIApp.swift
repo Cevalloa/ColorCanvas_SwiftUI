@@ -11,7 +11,15 @@ import SwiftUI
 struct ColorCanvas_SwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationStack {
+                List {
+                    NavigationLink {
+                        ContentView()
+                    } label: {
+                        Text("List style")
+                    }
+                }
+            }
         }
     }
 }
