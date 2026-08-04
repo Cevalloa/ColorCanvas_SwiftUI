@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ColorDetail: View {
     
+    @Environment(\.dismiss) private var dismiss
+    
     var colorsDetailViewModel: ColorsDetailViewModel
     @Binding var colorsListViewModel: ColorsListViewModel
 
@@ -36,6 +38,7 @@ struct ColorDetail: View {
                 }
                 Button("Delete all colors!", role: .destructive) {
                     colorsListViewModel.clearAllColors()
+                    dismiss()
                 }
             }
         }
