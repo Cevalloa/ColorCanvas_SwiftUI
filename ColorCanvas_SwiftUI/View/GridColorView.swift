@@ -36,6 +36,6 @@ struct GridColorView: View {
 }
 
 #Preview {
-    @Previewable @State var colorsListViewModel = ColorsListViewModel()
+    @Previewable @State var colorsListViewModel = ColorsListViewModel(colorsInUse: [ColorModel(color: .blue)])
     GridColorView(colorsListViewModel: $colorsListViewModel)
 }
