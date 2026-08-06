@@ -24,11 +24,9 @@ struct GridColorView: View {
                 )
             } else {
                 ScrollView {
-                    LazyVGrid(columns: columns, spacing: 12) {
+                    LazyVGrid(columns: columns) {
                         ForEach(colorsListViewModel.colorsInUse) { colorModel in
-                            RoundedRectangle(cornerRadius: 16)
-                                .fill(colorModel.color)
-                                .aspectRatio(1, contentMode: .fit)
+                            Rectangle().fill(colorModel.color).aspectRatio(1, contentMode: .fit)
                         }
                     }
                 }
