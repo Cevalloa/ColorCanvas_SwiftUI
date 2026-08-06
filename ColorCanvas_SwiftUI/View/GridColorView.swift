@@ -9,7 +9,7 @@ import SwiftUI
 
 struct GridColorView: View {
     var body: some View {
-        
+        // Add grid layout here
     }
 }
 
