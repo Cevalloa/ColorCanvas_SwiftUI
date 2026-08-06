@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var colorsListViewModel = ColorsListViewModel()
+    @Binding var colorsListViewModel: ColorsListViewModel
     @State private var isShowingHelloAlert = false
 
     var body: some View {
@@ -71,5 +71,6 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    @Previewable @State var colorsListViewModel = ColorsListViewModel()
+    ContentView(colorsListViewModel: $colorsListViewModel)
 }

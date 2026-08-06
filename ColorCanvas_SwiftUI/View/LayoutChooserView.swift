@@ -8,17 +8,19 @@
 import SwiftUI
 
 struct LayoutChooserView: View {
+    @State private var colorsListViewModel = ColorsListViewModel()
+
     var body: some View {
         NavigationStack {
             List {
                 NavigationLink {
-                    ContentView()
+                    ContentView(colorsListViewModel: $colorsListViewModel)
                 } label: {
                     Text("List view")
                 }
 
                 NavigationLink {
-                    GridColorView()
+                    GridColorView(colorsListViewModel: $colorsListViewModel)
                 } label: {
                     Text("Grid View")
                 }
